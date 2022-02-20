@@ -1,0 +1,45 @@
+﻿@model ContatoWeb.Models.Contato
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar contato</h2>
+
+<div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Deseja deletar este cliente ?</h4>
+            </div>
+            <div class="modal-body">
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.Id)</dt>
+                    <dd>@Html.DisplayFor(model => model.Id)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.Nome)</dt>
+                    <dd>@Html.DisplayFor(model => model.Nome)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.Email)</dt>
+                    <dd>@Html.DisplayFor(model => model.Email)</dd>
+                    <dt>@Html.DisplayNameFor(model => model.Telefone)</dt>
+                    <dd>@Html.DisplayFor(model => model.Telefone)</dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Deletar" class="btn btn-succcess" />
+                    </div>
+                }
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+    <div>
+        @Html.ActionLink("Retornar para a Lista", "Index")
+    </div>
+</div>
+
